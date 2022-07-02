@@ -7,5 +7,5 @@ The design:
 ### Back-up design:
 <details>
 <summary>Click to show</summary>
-<img src="https://noveltystreet.com/wp-content/uploads/2014/12/Mustard-Retro-Calculator-Mouse-Pad-Cool-Gift-to-Buy.jpg" height="50%" width="50%">
+<img src="http://www.vintage-calculators.nl/P1030445-stkas.jpg" height="50%" width="50%">
 </details>
