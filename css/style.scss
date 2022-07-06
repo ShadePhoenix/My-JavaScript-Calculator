@@ -1,0 +1,73 @@
+@mixin hex($rotate: false) {
+    @if $rotate {
+        clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    } @else {
+        clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    }
+}
+
+@mixin size($size, $rotate: false) {
+    @if $rotate {
+        height: calc($size * 0.875);
+        width: $size;
+    } @else {
+        height: $size;
+        width: calc($size * 0.875);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__display {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: right;
+        height: 100px;
+        font-size: 30px;
+        font-family: Helvetica;
+        width: 400px;
+        padding: 0 25px;
+        color: white;
+        background-color: black;
+    }
+    &__key-pad {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        padding: 25px;
+    }
+    &__btn {
+        @include size(100px, true);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4px -10px;
+        font-family: Arial, Helvetica, sans-serif;
+        & > button {
+            height: 90%;
+            width: 90%;
+            background-color: none;
+            @include hex(true);
+        }
+        &--font-large {
+            font-size: 40px;
+        }
+        &--font-medium {
+            font-size: 20px;
+        }
+        &--hex {
+            @include hex(true);
+            background-color: blueviolet;
+        }
+    }
+}
