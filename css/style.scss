@@ -38,6 +38,9 @@
         padding: 0 25px;
         color: white;
         background-color: black;
+        &--hide {
+            display: none;
+        }
     }
     &__key-pad {
         display: flex;
@@ -54,10 +57,17 @@
         margin: 4px -10px;
         font-family: Arial, Helvetica, sans-serif;
         & > button {
+            border: none;
             height: 90%;
             width: 90%;
-            background-color: none;
+            background-color: blueviolet;
             @include hex(true);
+            &:hover {
+                background-color: #5a2d85;
+            }
+            &:active {
+                transform: scale(98%);
+            }
         }
         &--font-large {
             font-size: 40px;
@@ -67,7 +77,7 @@
         }
         &--hex {
             @include hex(true);
-            background-color: blueviolet;
+            background-color: #9a5bd6;
         }
     }
 }

@@ -5,135 +5,234 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../css/style.css" />
+        <script src="../js/main.js" defer></script>
         <title>Hexagonal Calculator</title>
     </head>
     <body>
         <header></header>
         <main>
             <div class="calculator">
-                <section class="calculator__display"><p>123456789</p></section>
+                <section class="calculator__display">
+                    <small id="calcDisplay__prev"></small>
+                    <p id="calcDisplay" class="">0</p>
+                </section>
                 <div class="calculator__key-pad">
                     <div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-medium">
+                            <button
+                                id="onOff"
+                                class="calculator__btn--font-medium"
+                                value="function"
+                            >
                                 On/Off
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="7"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 7
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="4"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 4
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="1"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 1
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="0"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 0
                             </button>
                         </div>
                     </div>
                     <div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="negPos"
+                                class="calculator__btn--font-large"
+                                value="function"
+                            >
                                 +/-
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="8"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 8
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="5"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 5
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="2"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 2
                             </button>
                         </div>
                     </div>
                     <div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="sqrRoot"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 √
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="9"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 9
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="6"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 6
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="3"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 3
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="decimal"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 .
                             </button>
                         </div>
                     </div>
                     <div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-medium">
+                            <button
+                                id="memClr"
+                                class="calculator__btn--font-medium"
+                                value="function"
+                                disabled
+                            >
                                 MRC
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="percentage"
+                                class="calculator__btn--font-large"
+                                value="function"
+                            >
                                 %
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="divide"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 ÷
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="minus"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 -
                             </button>
                         </div>
                     </div>
                     <div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="memAdd"
+                                class="calculator__btn--font-large"
+                                value="function"
+                                disabled
+                            >
                                 M+
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="memRemove"
+                                class="calculator__btn--font-large"
+                                value="function"
+                                disabled
+                            >
                                 M-
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="multiply"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 ×
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="plus"
+                                class="calculator__btn--font-large"
+                                value="displayable"
+                            >
                                 +
                             </button>
                         </div>
                         <div class="calculator__btn calculator__btn--hex">
-                            <button class="calculator__btn--font-large">
+                            <button
+                                id="equals"
+                                class="calculator__btn--font-large"
+                                value="function"
+                            >
                                 =
                             </button>
                         </div>
