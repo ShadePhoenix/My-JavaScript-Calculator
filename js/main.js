@@ -8,98 +8,65 @@ buttons.forEach((btn) => btn.addEventListener("click", () => buttonEvent(btn)));
 
 class Display {
     constructor() {
-        this.element = document.getElementById("calcDisplay");
-        this.prevElement = document.getElementById("calcDisplay__prev");
-        this._displayStr = "";
-        this._displayOff = this.element.classList.toggle(
-            "calculator__display--hide",
-            true
-        );
-        this.strMax = 24;
+        this.main = document.getElementById("calcDisplay");
+        this.eDisplay = document.getElementById("calcDisplay__equation");
     }
 
-    updateDisplay() {
-        this.element.innerText = this.displayStr;
+    addToDisplay(char) {
+        this.main.innerText === "0"
+            ? (this.main.innerText = char)
+            : (this.main.innerText += char);
     }
 
-    get displayStr() {
-        return this._displayStr;
+    displayResult(result) {
+        this.displayEquation(this.main.innerText);
+        this.main.innerText = result;
     }
 
-    // set displayStr(value) {
-    //     this._displayStr = value;
-    //     this.updateDisplay();
-    // }
-
-    addToStr(numSym) {
-        //add an if statement or else if to handle pressing a function button after calculating something. i.e
-        //the user just submitted 2+2 so if they press a function button instead of another number, it should
-        //display the answer, in this case 4, then the function button they pressed.
-        if (this._displayStr === "" && !/[0-9]/.test(numSym))
-            this._displayStr += "0";
-        if (
-            !/[0-9]/.test(this._displayStr[this._displayStr.length - 1]) &&
-            !/[0-9]/.test(numSym)
-        )
-            this._displayStr = this._displayStr.slice(0, -1);
-        this._displayStr += numSym;
-        this.updateDisplay();
+    displayEquation(equation) {
+        this.eDisplay.innerHTML = equation + "=";
     }
 
-    clearStr() {
-        this._displayStr = "";
-        this.updateDisplay();
-        this.element.innerText = "0";
-    }
-
-    get displayOff() {
-        return this._displayOff;
-    }
-
-    toggle() {
-        this._displayOff = this.element.classList.toggle(
-            "calculator__display--hide"
-        );
-        if (this.displayOff) this.clearStr();
+    clear() {
+        this.main.innerText = "";
+        this.eDisplay.innerText = "";
     }
 }
 
 const display = new Display();
 
+const calcTmp = { left: "", operator: null, right: "" };
+let calculation = { left: "", operator: null, right: "" };
+
 function buttonEvent(btn) {
-    if (display.displayOff == true && btn.id != "onOff") return;
     if (btn.value === "function") {
         switch (btn.id) {
-            case "onOff":
-                display.toggle();
+            case "clear":
+                display.clear();
+                calculation = calcTmp;
                 break;
             case "negPos":
+                calculation.operator == null
+                    ? (calculation.left = mathf.posNeg(left))
+                    : (calculation.right = mathf.posNeg(right));
                 break;
             case "sqrRoot":
                 break;
-            case "memClr":
-                break;
-            case "memAdd":
-                break;
-            case "memRemove":
-                break;
             case "percentage":
                 break;
-            case "multiply":
-                break;
-            case "divide":
-                break;
-            case "plus":
-                break;
-            case "minus":
-                break;
             case "equals":
-                mathf.equals(new mathf.Calculation(display.displayStr));
+                display.displayResult(mathf.equals(calculation));
                 break;
         }
     }
     if (btn.value === "displayable") {
-        display.addToStr(btn.innerText);
+        if (!mathf.numRegex.test(btn.innerText)) {
+            if (calculation.left == "") calculation.left = 0;
+            calculation.operator = btn.innerText;
+        } else if (calculation.operator == null) {
+            calculation.left += btn.innerText;
+        } else calculation.right += btn.innerText;
+        display.addToDisplay(btn.innerText);
+        console.log(calculation);
     }
-    console.log(btn.innerText);
 }

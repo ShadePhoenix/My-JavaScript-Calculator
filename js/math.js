@@ -15,6 +15,8 @@ export function posNeg(input) {
     return input < 0 ? Math.abs(input) : -Math.abs(input);
 }
 
+export const numRegex = /[0-9.]/;
+
 export const symbols = [
     "+".charCodeAt(0),
     "-".charCodeAt(0),
@@ -22,29 +24,18 @@ export const symbols = [
     "÷".charCodeAt(0)
 ];
 
-export class Calculation {
-    constructor(calcStr = "") {
-        if (!calcStr.length) throw new Error("No gonna work");
-        this.operator = calcStr.charAt(calcStr.indexOf(mathf.symbols));
-        const [left, right] = calcStr.split(operator);
-        this._left = left;
-        this._right = right;
-    }
-}
-
-export function equals(calculation) {
-    switch (calculation.operator) {
+export const equals = (obj) => {
+    const left = Number(obj.left);
+    const right = Number(obj.right);
+    if (obj.operator == null) return obj.left;
+    switch (obj.operator.charCodeAt(0)) {
         case symbols[0]:
-            add(calculation.left, calculation.right);
-            break;
+            return add(left, right);
         case symbols[1]:
-            subtract(calculation.left, calculation.right);
-            break;
+            return subtract(left, right);
         case symbols[2]:
-            multiply(calculation.left, calculation.right);
-            break;
+            return multiply(left, right);
         case symbols[3]:
-            divide(calculation.left, calculation.right);
-            break;
+            return divide(left, right);
     }
-}
+};
