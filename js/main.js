@@ -1,3 +1,4 @@
+import * as mathf from "./math.js";
 //Ignore the Memory buttons for now
 
 const buttons = document.querySelectorAll(
@@ -93,6 +94,7 @@ function buttonEvent(btn) {
             case "minus":
                 break;
             case "equals":
+                mathf.equals(new mathf.Calculation(display.displayStr));
                 break;
         }
     }
